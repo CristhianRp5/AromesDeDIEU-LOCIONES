@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Mobile - AROME DE DIEU</title>
+    
+    <!-- Fuentes y estilos críticos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Estilos principales con versión actualizada -->
+    <link rel="stylesheet" href="css/style.css?v=3.0">
+    <link rel="stylesheet" href="css/navbar.css?v=3.0">
+    
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .test-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .test-result {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .loading {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .device-info {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .test-image {
+            max-width: 200px;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .navigation-test {
+            margin: 10px 0;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover {
+            background: #0056b3;
+        }
+        
+        .error-log {
+            background: #ffe6e6;
+            border: 1px solid #ff9999;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Test de Compatibilidad Mobile</h1>
+        <p>Verificando la compatibilidad de la página con dispositivos móviles...</p>
+        
+        <!-- Información del dispositivo -->
+        <div class="test-section">
+            <div class="test-title">Información del Dispositivo</div>
+            <div class="device-info" id="deviceInfo">Cargando información del dispositivo...</div>
+        </div>
+        
+        <!-- Test de carga de recursos -->
+        <div class="test-section">
+            <div class="test-title">Test de Recursos</div>
+            <div id="resourceTests">
+                <div class="test-result loading">Verificando carga de CSS...</div>
+                <div class="test-result loading">Verificando carga de JavaScript...</div>
+                <div class="test-result loading">Verificando carga de imágenes...</div>
+                <div class="test-result loading">Verificando carga de fuentes...</div>
+            </div>
+        </div>
+        
+        <!-- Test de imágenes críticas -->
+        <div class="test-section">
+            <div class="test-title">Test de Imágenes</div>
+            <div id="imageTests">
+                <div class="test-result loading">Verificando imágenes principales...</div>
+                <img src="IMAGENES/BLOGO AROME DE DIEU.png" alt="Logo Test" class="test-image" id="logoTest">
+                <img src="IMAGENES/PARA_ELLAS.jpg" alt="Para Ellas Test" class="test-image" id="paraEllasTest">
+                <img src="IMAGENES/HUGO BOSS JUST DIFFERENT.png" alt="Perfume Test" class="test-image" id="perfumeTest">
+            </div>
+        </div>
+        
+        <!-- Test de navegación -->
+        <div class="test-section">
+            <div class="test-title">Test de Navegación</div>
+            <div class="navigation-test">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="html/productos.html" class="nav-link">Productos</a>
+                <a href="html/para_ellos.html" class="nav-link">Para Ellos</a>
+                <a href="html/para_ellas.html" class="nav-link">Para Ellas</a>
+                <a href="html/contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <div id="navigationTests">
+                <div class="test-result loading">Verificando enlaces de navegación...</div>
+            </div>
+        </div>
+        
+        <!-- Test de JavaScript -->
+        <div class="test-section">
+            <div class="test-title">Test de JavaScript</div>
+            <div id="jsTests">
+                <div class="test-result loading">Verificando ejecución de JavaScript...</div>
+            </div>
+        </div>
+        
+        <!-- Test de almacenamiento local -->
+        <div class="test-section">
+            <div class="test-title">Test de Almacenamiento</div>
+            <div id="storageTests">
+                <div class="test-result loading">Verificando localStorage...</div>
+                <div class="test-result loading">Verificando sessionStorage...</div>
+            </div>
+        </div>
+        
+        <!-- Log de errores -->
+        <div class="test-section">
+            <div class="test-title">Log de Errores</div>
+            <div class="error-log" id="errorLog">No se han detectado errores hasta ahora...</div>
+        </div>
+    </div>
+
+    <script>
+        // Captura de errores globales
+        const errorLog = document.getElementById('errorLog');
+        const errors = [];
+        
+        function logError(message, source = 'general') {
+            const timestamp = new Date().toLocaleTimeString();
+            const errorMsg = `[${timestamp}] ${source}: ${message}`;
+            errors.push(errorMsg);
+            errorLog.innerHTML = errors.join('<br>') || 'No se han detectado errores hasta ahora...';
+            console.error(errorMsg);
+        }
+        
+        window.addEventListener('error', (e) => {
+            logError(`${e.message} en ${e.filename}:${e.lineno}`, 'JavaScript Error');
+        });
+        
+        window.addEventListener('unhandledrejection', (e) => {
+            logError(`Promise rechazada: ${e.reason}`, 'Promise Error');
+        });
+        
+        // Test de información del dispositivo
+        function testDeviceInfo() {
+            const deviceInfo = document.getElementById('deviceInfo');
+            const info = {
+                'User Agent': navigator.userAgent,
+                'Pantalla': `${screen.width}x${screen.height}`,
+                'Viewport': `${window.innerWidth}x${window.innerHeight}`,
+                'Ratio de Píxeles': window.devicePixelRatio || 1,
+                'Touch Support': 'ontouchstart' in window ? 'Sí' : 'No',
+                'Online': navigator.onLine ? 'Sí' : 'No',
+                'Cookies Habilitadas': navigator.cookieEnabled ? 'Sí' : 'No',
+                'Idioma': navigator.language,
+                'Plataforma': navigator.platform
+            };
+            
+            let infoHtml = '';
+            for (const [key, value] of Object.entries(info)) {
+                infoHtml += `<strong>${key}:</strong> ${value}<br>`;
+            }
+            deviceInfo.innerHTML = infoHtml;
+        }
+        
+        // Test de recursos CSS
+        function testResources() {
+            const resourceTests = document.getElementById('resourceTests');
+            let html = '';
+            
+            // Test CSS
+            const stylesheets = document.styleSheets;
+            try {
+                let cssLoaded = stylesheets.length > 0;
+                html += `<div class="test-result ${cssLoaded ? 'success' : 'error'}">
+                    CSS: ${cssLoaded ? '✓ Cargado' : '✗ Error'} (${stylesheets.length} hojas de estilo)
+                </div>`;
+            } catch (e) {
+                html += `<div class="test-result error">CSS: ✗ Error al verificar - ${e.message}</div>`;
+                logError(e.message, 'CSS Test');
+            }
+            
+            // Test JavaScript básico
+            try {
+                const jsTest = typeof window.fetch !== 'undefined' && typeof window.Promise !== 'undefined';
+                html += `<div class="test-result ${jsTest ? 'success' : 'error'}">
+                    JavaScript APIs: ${jsTest ? '✓ Disponibles' : '✗ No disponibles'} (fetch, Promise)
+                </div>`;
+            } catch (e) {
+                html += `<div class="test-result error">JavaScript: ✗ Error - ${e.message}</div>`;
+                logError(e.message, 'JS Test');
+            }
+            
+            // Test de fuentes
+            try {
+                const fontLoaded = document.fonts ? document.fonts.size > 0 : true;
+                html += `<div class="test-result ${fontLoaded ? 'success' : 'warning'}">
+                    Fuentes: ${fontLoaded ? '✓ Cargadas' : '⚠ Sin verificar'} 
+                    ${document.fonts ? `(${document.fonts.size} fuentes)` : ''}
+                </div>`;
+            } catch (e) {
+                html += `<div class="test-result warning">Fuentes: ⚠ Error al verificar - ${e.message}</div>`;
+                logError(e.message, 'Font Test');
+            }
+            
+            resourceTests.innerHTML = html;
+        }
+        
+        // Test de imágenes
+        function testImages() {
+            const imageTests = document.getElementById('imageTests');
+            const images = ['logoTest', 'paraEllasTest', 'perfumeTest'];
+            let loadedCount = 0;
+            let totalImages = images.length;
+            
+            images.forEach(imageId => {
+                const img = document.getElementById(imageId);
+                if (img) {
+                    img.onload = () => {
+                        loadedCount++;
+                        updateImageStatus();
+                    };
+                    img.onerror = () => {
+                        logError(`Error al cargar imagen: ${img.src}`, 'Image Load');
+                        updateImageStatus();
+                    };
+                }
+            });
+            
+            function updateImageStatus() {
+                const status = loadedCount === totalImages ? 'success' : 
+                              loadedCount > 0 ? 'warning' : 'error';
+                imageTests.innerHTML = `
+                    <div class="test-result ${status}">
+                        Imágenes: ${loadedCount}/${totalImages} cargadas correctamente
+                    </div>
+                    <img src="IMAGENES/BLOGO AROME DE DIEU.png" alt="Logo Test" class="test-image" id="logoTest">
+                    <img src="IMAGENES/PARA_ELLAS.jpg" alt="Para Ellas Test" class="test-image" id="paraEllasTest">
+                    <img src="IMAGENES/HUGO BOSS JUST DIFFERENT.png" alt="Perfume Test" class="test-image" id="perfumeTest">
+                `;
+            }
+        }
+        
+        // Test de navegación
+        function testNavigation() {
+            const navigationTests = document.getElementById('navigationTests');
+            const links = document.querySelectorAll('.nav-link');
+            let testResults = '';
+            
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                const isValid = href && href !== '#' && !href.startsWith('javascript:');
+                testResults += `<div class="test-result ${isValid ? 'success' : 'warning'}">
+                    ${href}: ${isValid ? '✓ Válido' : '⚠ Revisar'}
+                </div>`;
+            });
+            
+            navigationTests.innerHTML = testResults;
+        }
+        
+        // Test de JavaScript APIs
+        function testJavaScript() {
+            const jsTests = document.getElementById('jsTests');
+            let html = '';
+            
+            const apis = {
+                'fetch': typeof window.fetch !== 'undefined',
+                'localStorage': typeof window.localStorage !== 'undefined',
+                'sessionStorage': typeof window.sessionStorage !== 'undefined',
+                'Promise': typeof window.Promise !== 'undefined',
+                'addEventListener': typeof window.addEventListener !== 'undefined',
+                'querySelector': typeof document.querySelector !== 'undefined'
+            };
+            
+            for (const [api, available] of Object.entries(apis)) {
+                html += `<div class="test-result ${available ? 'success' : 'error'}">
+                    ${api}: ${available ? '✓ Disponible' : '✗ No disponible'}
+                </div>`;
+            }
+            
+            jsTests.innerHTML = html;
+        }
+        
+        // Test de almacenamiento
+        function testStorage() {
+            const storageTests = document.getElementById('storageTests');
+            let html = '';
+            
+            // Test localStorage
+            try {
+                localStorage.setItem('test', 'value');
+                const retrieved = localStorage.getItem('test');
+                localStorage.removeItem('test');
+                html += `<div class="test-result ${retrieved === 'value' ? 'success' : 'error'}">
+                    localStorage: ${retrieved === 'value' ? '✓ Funcionando' : '✗ Error'}
+                </div>`;
+            } catch (e) {
+                html += `<div class="test-result error">localStorage: ✗ Error - ${e.message}</div>`;
+                logError(e.message, 'localStorage Test');
+            }
+            
+            // Test sessionStorage
+            try {
+                sessionStorage.setItem('test', 'value');
+                const retrieved = sessionStorage.getItem('test');
+                sessionStorage.removeItem('test');
+                html += `<div class="test-result ${retrieved === 'value' ? 'success' : 'error'}">
+                    sessionStorage: ${retrieved === 'value' ? '✓ Funcionando' : '✗ Error'}
+                </div>`;
+            } catch (e) {
+                html += `<div class="test-result error">sessionStorage: ✗ Error - ${e.message}</div>`;
+                logError(e.message, 'sessionStorage Test');
+            }
+            
+            storageTests.innerHTML = html;
+        }
+        
+        // Ejecutar todos los tests
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                testDeviceInfo();
+                testResources();
+                testImages();
+                testNavigation();
+                testJavaScript();
+                testStorage();
+                
+                // Test adicional de conectividad
+                if (navigator.onLine) {
+                    fetch('css/style.css?v=3.0', { method: 'HEAD' })
+                        .then(response => {
+                            if (!response.ok) {
+                                logError(`Error al acceder a recursos: ${response.status}`, 'Connectivity Test');
+                            }
+                        })
+                        .catch(e => {
+                            logError(`Error de conectividad: ${e.message}`, 'Connectivity Test');
+                        });
+                }
+            } catch (e) {
+                logError(`Error general en tests: ${e.message}`, 'General Test Error');
+            }
+        });
+        
+        // Monitoreo adicional de rendimiento
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const timing = performance.timing;
+                    const loadTime = timing.loadEventEnd - timing.navigationStart;
+                    if (loadTime > 5000) {
+                        logError(`Tiempo de carga lento: ${loadTime}ms`, 'Performance Warning');
+                    }
+                }, 1000);
+            });
+        }
+    </script>
+</body>
+</html>

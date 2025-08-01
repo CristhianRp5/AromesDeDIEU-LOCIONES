@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Móvil - Aromes De Dieu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .diagnostic-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .error { color: #e74c3c; }
+        .success { color: #27ae60; }
+        .warning { color: #f39c12; }
+        .info { color: #3498db; }
+        .result-box {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .test-button {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #2980b9;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagnostic-container">
+        <h1>🔍 Diagnóstico Completo - Móviles</h1>
+        <p><strong>Usa esta página para detectar exactamente qué está fallando en tu sitio móvil</strong></p>
+        
+        <button class="test-button" onclick="runFullDiagnostic()">🚀 Ejecutar Diagnóstico Completo</button>
+        <button class="test-button" onclick="testSpecificURL()">🎯 Probar URL Específica</button>
+        <button class="test-button" onclick="clearResults()">🧹 Limpiar Resultados</button>
+        
+        <div id="results"></div>
+        
+        <div class="result-box">
+            <h3>📱 Instrucciones:</h3>
+            <ol>
+                <li><strong>Sube este archivo</strong> a la raíz de tu proyecto como <code>diagnostic.html</code></li>
+                <li><strong>Accede desde móvil</strong> a: <code>tudominio.com/diagnostic.html</code></li>
+                <li><strong>Ejecuta diagnóstico</strong> y comparte los resultados</li>
+                <li><strong>Guarda los errores</strong> que aparezcan para analizarlos</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let diagnosticResults = [];
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const colors = {
+                error: '#e74c3c',
+                success: '#27ae60', 
+                warning: '#f39c12',
+                info: '#3498db'
+            };
+            
+            diagnosticResults.push({
+                time: timestamp,
+                message: message,
+                type: type
+            });
+            
+            updateResults();
+        }
+
+        function updateResults() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = diagnosticResults.map(result => 
+                `<div class="result-box" style="border-left-color: ${result.type === 'error' ? '#e74c3c' : result.type === 'success' ? '#27ae60' : result.type === 'warning' ? '#f39c12' : '#3498db'}">
+                    <strong>[${result.time}]</strong> <span class="${result.type}">${result.message}</span>
+                </div>`
+            ).join('');
+        }
+
+        function clearResults() {
+            diagnosticResults = [];
+            updateResults();
+        }
+
+        async function runFullDiagnostic() {
+            clearResults();
+            log('🔍 Iniciando diagnóstico completo...', 'info');
+            
+            // 1. Información básica del dispositivo
+            log('📱 INFORMACIÓN DEL DISPOSITIVO:', 'info');
+            log(`User Agent: ${navigator.userAgent}`, 'info');
+            log(`Pantalla: ${screen.width}x${screen.height}`, 'info');
+            log(`Viewport: ${window.innerWidth}x${window.innerHeight}`, 'info');
+            log(`Ratio de píxeles: ${window.devicePixelRatio}`, 'info');
+            log(`Plataforma: ${navigator.platform}`, 'info');
+            
+            // 2. Verificar conexión
+            if (navigator.connection) {
+                log(`Tipo de conexión: ${navigator.connection.effectiveType}`, 'info');
+                log(`Velocidad estimada: ${navigator.connection.downlink} Mbps`, 'info');
+            }
+            
+            // 3. Probar carga de recursos principales
+            log('🌐 PROBANDO RECURSOS PRINCIPALES:', 'info');
+            
+            const testResources = [
+                'index.html',
+                'css/style.css?v=3.0',
+                'css/navbar.css?v=3.0', 
+                'js/navbar.js?v=3.0',
+                'html/navbar.html',
+                'html/footer.html',
+                'IMAGENES/POP.jpg'
+            ];
+            
+            for (const resource of testResources) {
+                await testResource(resource);
+            }
+            
+            // 4. Probar fetch de componentes
+            log('🔧 PROBANDO COMPONENTES:', 'info');
+            await testFetchComponent('html/navbar.html');
+            await testFetchComponent('html/footer.html');
+            
+            // 5. Verificar JavaScript
+            log('⚙️ VERIFICANDO JAVASCRIPT:', 'info');
+            testJavaScriptFeatures();
+            
+            // 6. Verificar localStorage
+            testStorage();
+            
+            // 7. Verificar orientación y touch
+            testMobileFeatures();
+            
+            // 8. Monitorear errores
+            setupErrorMonitoring();
+            
+            log('✅ Diagnóstico completado', 'success');
+        }
+
+        async function testResource(url) {
+            try {
+                const response = await fetch(url, { 
+                    method: 'HEAD',
+                    cache: 'no-cache'
+                });
+                
+                if (response.ok) {
+                    log(`✅ ${url} - OK (${response.status})`, 'success');
+                } else {
+                    log(`❌ ${url} - Error ${response.status}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ ${url} - Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testFetchComponent(url) {
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const content = await response.text();
+                    log(`✅ ${url} - Cargado (${content.length} chars)`, 'success');
+                } else {
+                    log(`❌ ${url} - Error ${response.status}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ ${url} - Error: ${error.message}`, 'error');
+            }
+        }
+
+        function testJavaScriptFeatures() {
+            try {
+                // Probar fetch
+                if (typeof fetch !== 'undefined') {
+                    log('✅ Fetch API disponible', 'success');
+                } else {
+                    log('❌ Fetch API no disponible', 'error');
+                }
+                
+                // Probar Promises
+                if (typeof Promise !== 'undefined') {
+                    log('✅ Promises disponibles', 'success');
+                } else {
+                    log('❌ Promises no disponibles', 'error');
+                }
+                
+                // Probar addEventListener
+                if (typeof addEventListener !== 'undefined') {
+                    log('✅ Event Listeners disponibles', 'success');
+                } else {
+                    log('❌ Event Listeners no disponibles', 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Error probando JavaScript: ${error.message}`, 'error');
+            }
+        }
+
+        function testStorage() {
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                log('✅ localStorage funciona', 'success');
+            } catch (error) {
+                log(`❌ localStorage error: ${error.message}`, 'error');
+            }
+            
+            try {
+                sessionStorage.setItem('test', 'test');
+                sessionStorage.removeItem('test');
+                log('✅ sessionStorage funciona', 'success');
+            } catch (error) {
+                log(`❌ sessionStorage error: ${error.message}`, 'error');
+            }
+        }
+
+        function testMobileFeatures() {
+            // Touch support
+            if ('ontouchstart' in window) {
+                log('✅ Touch events soportados', 'success');
+            } else {
+                log('⚠️ Touch events no detectados', 'warning');
+            }
+            
+            // Orientation
+            if (screen.orientation) {
+                log(`📱 Orientación: ${screen.orientation.type}`, 'info');
+            }
+            
+            // Media queries
+            if (window.matchMedia) {
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                log(`📱 Es móvil (CSS): ${isMobile}`, 'info');
+            }
+        }
+
+        function setupErrorMonitoring() {
+            window.addEventListener('error', (e) => {
+                log(`🚨 ERROR: ${e.message} en ${e.filename}:${e.lineno}`, 'error');
+            });
+            
+            window.addEventListener('unhandledrejection', (e) => {
+                log(`🚨 PROMISE REJECTED: ${e.reason}`, 'error');
+            });
+            
+            log('👁️ Monitoreo de errores activado', 'info');
+        }
+
+        async function testSpecificURL() {
+            const url = prompt('Ingresa la URL a probar (ej: css/style.css?v=3.0):');
+            if (url) {
+                log(`🎯 Probando URL específica: ${url}`, 'info');
+                await testResource(url);
+            }
+        }
+
+        // Auto-ejecutar algunas verificaciones básicas al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🚀 Página de diagnóstico cargada', 'success');
+            setupErrorMonitoring();
+        });
+    </script>
+</body>
+</html>
