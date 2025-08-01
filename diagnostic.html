@@ -129,9 +129,9 @@
             
             const testResources = [
                 'index.html',
-                'css/style.css?v=3.0',
-                'css/navbar.css?v=3.0', 
-                'js/navbar.js?v=3.0',
+                'css/style.css?v=4.0',
+                'css/navbar.css?v=4.0', 
+                'js/navbar.js?v=4.0',
                 'html/navbar.html',
                 'html/footer.html',
                 'IMAGENES/POP.jpg'
@@ -272,7 +272,7 @@
         }
 
         async function testSpecificURL() {
-            const url = prompt('Ingresa la URL a probar (ej: css/style.css?v=3.0):');
+            const url = prompt('Ingresa la URL a probar (ej: css/style.css?v=4.0):');
             if (url) {
                 log(`🎯 Probando URL específica: ${url}`, 'info');
                 await testResource(url);

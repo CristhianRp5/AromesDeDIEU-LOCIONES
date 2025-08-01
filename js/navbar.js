@@ -5,9 +5,7 @@ let navbarInitialized = false;
 
 // Función principal de inicialización de la navbar
 function initNavbar() {
-    console.log('Iniciando inicialización de navbar');
     if (navbarInitialized) {
-        console.log('La navbar ya está inicializada');
         return;
     }
 
@@ -16,25 +14,19 @@ function initNavbar() {
     const navbarMenu = document.querySelector('.navbar-menu');
 
     if (!navbar || !hamburgerMenu || !navbarMenu) {
-        console.log('Elementos de navbar no encontrados, reintentando...');
         initAttempts++;
         if (initAttempts < MAX_ATTEMPTS) {
             setTimeout(initNavbar, 100);
         }
         return;
     }
-
-    console.log('Elementos de navbar encontrados, configurando eventos');
     
     // Toggle del menú hamburguesa
     hamburgerMenu.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('Hamburger menu clicked!');
         hamburgerMenu.classList.toggle('active');
         navbarMenu.classList.toggle('active');
         document.body.style.overflow = hamburgerMenu.classList.contains('active') ? 'hidden' : '';
-        console.log('Hamburger active:', hamburgerMenu.classList.contains('active'));
-        console.log('Menu active:', navbarMenu.classList.contains('active'));
     });
 
     // Cerrar menú al hacer click en enlaces finales (que no tienen submenús)
@@ -108,8 +100,6 @@ function initNavbar() {
                             item.style.animation = '';
                         });
                     }
-                    
-                    console.log('Submenu toggled:', link.textContent, 'Active:', !isActive);
                 }
             });
 
@@ -160,22 +150,17 @@ function initNavbar() {
     });
 
     navbarInitialized = true;
-    console.log('✓ Navbar inicializada correctamente');
 }
 
 // Event listener para cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Content Loaded - Intentando inicializar navbar');
-    
     // Intentar inicializar la navbar inmediatamente
     initNavbar();
 
     // Si no se inicializó en el primer intento, crear un observer para detectar cambios
     if (!navbarInitialized) {
-        console.log('Primera inicialización falló, creando observer');
         const observer = new MutationObserver((mutations) => {
             if (!navbarInitialized) {
-                console.log('Cambio detectado en DOM, reintentando inicialización');
                 initNavbar();
             } else {
                 observer.disconnect();
@@ -289,18 +274,8 @@ function detectBackgroundColor() {
         
         if (isLightBackground) {
             navbar.classList.add('dark-mode');
-            console.log('🌞 Fondo claro detectado - Navbar en modo oscuro', {
-                backgroundColor,
-                rgb: [r, g, b],
-                luminance: luminance.toFixed(3)
-            });
         } else {
             navbar.classList.remove('dark-mode');
-            console.log('🌙 Fondo oscuro detectado - Navbar en modo claro', {
-                backgroundColor,
-                rgb: [r, g, b],
-                luminance: luminance.toFixed(3)
-            });
         }
     }
 

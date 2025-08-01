@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Asegurarnos de que los estilos se cargan en el orden correcto -->
-    <link rel="stylesheet" href="css/style.css?v=3.0">
-    <link rel="stylesheet" href="css/navbar.css?v=3.0">
-    <link rel="stylesheet" href="css/discount-popup.css?v=3.0">
+    <link rel="stylesheet" href="css/style.css?v=4.0">
+    <link rel="stylesheet" href="css/navbar.css?v=4.0">
+    <link rel="stylesheet" href="css/discount-popup.css?v=4.0">
 </head>
 <body>
     <!-- Popup de Descuento Premium - Slide Bar -->
@@ -23,7 +23,7 @@
                 <!-- Imagen principal que ocupa todo el espacio -->
                 <div class="popup-left">
                     <div class="popup-image-container">
-                        <img src="IMAGENES/POP.jpg" alt="AROME DE DIEU Promoción" class="popup-main-image" data-original-src="IMAGENES/POP.jpg">
+                        <img src="IMAGENES/POP.jpg" alt="AROME DE DIEU Promoción" class="popup-main-image">
                     </div>
                 </div>
                 
@@ -242,7 +242,7 @@
     </section>
 
     <!-- Cargar los scripts en el orden correcto -->
-    <script src="js/discount-popup.js?v=3.0"></script>
+    <script src="js/discount-popup.js?v=4.0"></script>
 
     <!-- Script principal para funcionalidad de pestañas -->
     <script>
@@ -254,8 +254,6 @@
             
             const tabButtons = document.querySelectorAll('.tab-btn');
             const perfumeItems = document.querySelectorAll('.perfume-item');
-            
-            console.log('🚀 Iniciando sistema de carga inmediata...');
             
             // Forzar carga inmediata de TODAS las imágenes
             function forceLoadAllImages() {
@@ -280,16 +278,12 @@
                         // Forzar que el navegador procese la imagen
                         const forceLoad = new Image();
                         forceLoad.src = img.src;
-                        
-                        console.log(`📸 Forzando carga: ${img.src}`);
                     }
                 });
             }
             
             // Función ultra-rápida para cambiar categorías
             function showCategoryInstant(category) {
-                console.log(`⚡ Cambio instantáneo a: ${category}`);
-                
                 // Cambio sin animaciones para máxima velocidad
                 perfumeItems.forEach(item => {
                     if (item.dataset.category === category) {
@@ -326,8 +320,6 @@
             
             // Mostrar categoría inicial inmediatamente
             showCategoryInstant('men');
-            
-            console.log('✅ Sistema de carga instantánea activado');
         });
     </script>
     <!-- Script optimizado para carga de navbar -->
@@ -355,12 +347,10 @@
                     const navLinks = document.querySelectorAll('.navbar-menu a[href]:not([href^="http"]):not([href^="#"])');
                     navLinks.forEach(link => {
                         const currentHref = link.getAttribute('href');
-                        console.log('🔗 Procesando enlace desde index.html:', currentHref);
                         
                         // Caso especial para enlace de vintage
                         if (link.hasAttribute('data-vintage-link')) {
                             link.setAttribute('href', 'html/colecciones/vintage.html');
-                            console.log('🍇 Enlace Vintage ajustado específicamente: html/colecciones/vintage.html');
                             return;
                         }
                         
@@ -368,7 +358,6 @@
                         if (!currentHref.startsWith('html/') && currentHref !== 'index.html') {
                             const newHref = 'html/' + currentHref;
                             link.setAttribute('href', newHref);
-                            console.log('✅ Enlace ajustado:', currentHref, '→', newHref);
                         }
                     });
                     
@@ -388,7 +377,6 @@
                     }
                 })
                 .catch(error => {
-                    console.error('Error:', error);
                     const navbarContainer = document.getElementById('navbar-container');
                     if (navbarContainer) {
                         navbarContainer.innerHTML = '<p>Error cargando la navegación. Por favor, recarga la página.</p>';
@@ -398,13 +386,13 @@
     </script>
 
     <!-- Scripts adicionales -->
-    <script src="js/navbar.js?v=3.0"></script>
+    <script src="js/navbar.js?v=4.0"></script>
 
     <!-- Footer Container -->
     <div id="footer-container"></div>
 
     <!-- Footer Scripts -->
-    <link rel="stylesheet" href="css/footer.css?v=3.0">
-    <script src="js/footer.js?v=3.0"></script>
+    <link rel="stylesheet" href="css/footer.css?v=4.0">
+    <script src="js/footer.js?v=4.0"></script>
 </body>
 </html>

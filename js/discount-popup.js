@@ -19,14 +19,14 @@ class DiscountPopup {
         if (this.popup && this.closeBtn && this.form) {
             this.init();
         } else {
-            console.warn('⚠️ Elementos del popup no encontrados, reintentando...');
+            
             setTimeout(() => this.constructor(), 500);
         }
     }
     
     init() {
         if (this.isInitialized) {
-            console.log('🔄 Popup ya inicializado, saltando...');
+            
             return;
         }
         
@@ -39,7 +39,7 @@ class DiscountPopup {
         }, 1000);
         
         this.isInitialized = true;
-        console.log('✅ Popup inicializado correctamente');
+        
     }
     
     setupEventListeners() {
@@ -88,9 +88,9 @@ class DiscountPopup {
             
             // Analytics tracking (opcional)
             this.trackEvent('popup_shown');
-            console.log('📱 Popup mostrado');
+            
         } catch (error) {
-            console.error('❌ Error mostrando popup:', error);
+            
         }
     }
     
@@ -104,7 +104,7 @@ class DiscountPopup {
             
             // Analytics tracking
             this.trackEvent('popup_closed');
-            console.log('🚪 Popup cerrado');
+            
             
             // Limpiar cualquier timeout activo
             if (this.autoCloseTimeout) {
@@ -112,7 +112,7 @@ class DiscountPopup {
                 this.autoCloseTimeout = null;
             }
         } catch (error) {
-            console.error('❌ Error cerrando popup:', error);
+            
         }
     }
     
@@ -142,7 +142,7 @@ class DiscountPopup {
             
         } catch (error) {
             this.showError('Error al procesar. Inténtalo de nuevo.');
-            console.error('Error submitting email:', error);
+            
         } finally {
             this.submitBtn.disabled = false;
             this.submitBtn.textContent = 'OBTENER DESCUENTO';
@@ -160,7 +160,7 @@ class DiscountPopup {
         
         // Aquí puedes integrar con tu sistema de newsletter
         // Por ejemplo: Mailchimp, ConvertKit, etc.
-        console.log('Email submitted:', email);
+        
         
         // Guardar en localStorage para futuras referencias
         const subscribers = JSON.parse(localStorage.getItem('arome_subscribers') || '[]');
@@ -246,9 +246,9 @@ class DiscountPopup {
                 });
             }
             
-            console.log('📊 Event tracked:', eventName, data);
+            
         } catch (error) {
-            console.warn('⚠️ Error tracking event:', error);
+            
         }
     }
 }
@@ -276,17 +276,17 @@ function addShakeCSS() {
 function initDiscountPopup() {
     // Prevenir múltiples inicializaciones
     if (window.discountPopupInstance) {
-        console.log('🔄 Popup ya existe, reutilizando instancia...');
+        
         return window.discountPopupInstance;
     }
     
     try {
         addShakeCSS();
         window.discountPopupInstance = new DiscountPopup();
-        console.log('✅ Popup inicializado exitosamente');
+        
         return window.discountPopupInstance;
     } catch (error) {
-        console.error('❌ Error inicializando popup:', error);
+        
         return null;
     }
 }

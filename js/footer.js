@@ -13,7 +13,8 @@ class GlobalFooter {
         this.setupScrollAnimations();
         this.setupSocialLinks();
         this.updateCurrentYear();
-        console.log('🦶 Footer global inicializado');
+        // Footer inicializado
+    } catch (error) {
     }
 
     // Configurar formulario de newsletter
@@ -190,7 +191,6 @@ class GlobalFooter {
 
                 // Aquí puedes agregar tracking o analytics
                 const platform = this.getSocialPlatform(link);
-                console.log(`🔗 Click en red social: ${platform}`);
                 
                 // Opcional: abrir enlace real
                 // window.open('https://real-social-link.com', '_blank');
@@ -250,10 +250,8 @@ class GlobalFooter {
 
             // Inicializar funcionalidades
             new GlobalFooter();
-            console.log('✅ Footer cargado exitosamente');
 
         } catch (error) {
-            console.error('❌ Error cargando footer:', error);
             container.innerHTML = `
                 <footer class="global-footer">
                     <div class="footer-content">
@@ -321,5 +319,3 @@ document.addEventListener('DOMContentLoaded', () => {
         GlobalFooter.loadFooter('footer-container');
     }
 });
-
-console.log('🦶 Footer global script cargado');

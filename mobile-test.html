@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Estilos principales con versión actualizada -->
-    <link rel="stylesheet" href="css/style.css?v=3.0">
-    <link rel="stylesheet" href="css/navbar.css?v=3.0">
+    <link rel="stylesheet" href="css/style.css?v=4.0">
+    <link rel="stylesheet" href="css/navbar.css?v=4.0">
     
     <style>
         .test-container {
@@ -388,7 +388,7 @@
                 
                 // Test adicional de conectividad
                 if (navigator.onLine) {
-                    fetch('css/style.css?v=3.0', { method: 'HEAD' })
+                    fetch('css/style.css?v=4.0', { method: 'HEAD' })
                         .then(response => {
                             if (!response.ok) {
                                 logError(`Error al acceder a recursos: ${response.status}`, 'Connectivity Test');
