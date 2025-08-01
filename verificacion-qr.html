@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Autenticidad - AROME DE DIEU</title>
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@200;300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Estilos del index -->
+    <link rel="stylesheet" href="css/style.css?v=3.0">
+    <link rel="stylesheet" href="css/navbar.css?v=3.0">
+    <link rel="stylesheet" href="css/cart.css?v=3.0">
+
+    <!-- Estilos específicos de verificación QR -->
+    <link rel="stylesheet" href="css/verificacion-qr.css=v=3.0">
+</head>
+<body>
+    <!-- Fondo del index borroso -->
+    <div class="index-background">
+        <!-- Navbar -->
+        <div id="navbar-container"></div>
+        
+        <!-- Video Showcase -->
+        <section class="video-showcase">
+            <div class="video-container">
+                <video autoplay loop muted playsinline class="video-background">
+                    <source src="VIDEOS/Video1_index.mp4" type="video/mp4">
+                </video>
+                <div class="video-content">
+                    <h2>Aromes De Dieu</h2>
+                    <p>L'art du parfum intemporel</p>
+                </div>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="VIDEOS/Video2_index.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h3>Collection Exclusive</h3>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="VIDEOS/Video3_Index.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h3>Essences Précieuses</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Overlay oscuro adicional -->
+    <div class="dark-overlay"></div>    <!-- Overlay de verificación -->
+    <div class="verification-overlay">
+        <div class="verification-wrapper">
+            <!-- Contenedor de verificación unificado -->
+            <div class="verification-container">
+                <!-- Header con imagen y título -->
+                <div class="verification-header">
+                    <!-- Sección de imagen del producto -->
+                    <div class="product-image-section">
+                        <img id="productImage" class="product-image" style="display: none;" alt="Producto">
+                        <div id="imagePlaceholder" class="product-image-placeholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="placeholder-text">
+                                Imagen<br>Producto
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información principal -->
+                    <div class="verification-info">
+                        <!-- Icono de verificación -->
+                        <div class="verification-icon">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+
+                        <!-- Nombre de la marca -->
+                        <h1 class="brand-name">AROME DE DIEU</h1>
+
+                        <!-- Título de verificación -->
+                        <h2 class="verification-title">Producto Verificado</h2>
+                        <p class="verification-subtitle">Este producto es auténtico y está respaldado por nuestra garantía de calidad</p>
+
+                        <!-- Estado de verificación -->
+                        <div class="verification-status">
+                            <div class="status-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="status-text">✓ Producto Legítimo</div>
+                        </div>
+
+                        <!-- Información del producto -->
+                        <div class="product-info">
+                            <div class="product-header">
+                                <div class="product-name" id="productName">Cargando...</div>
+                                <div class="product-brand" id="productBrand">AROME DE DIEU</div>
+                            </div>
+
+                            <div class="product-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">Código QR</div>
+                                    <div class="detail-value" id="qrCode">-</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Fecha de Verificación</div>
+                                    <div class="detail-value" id="verificationDate">-</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Lote</div>
+                                    <div class="detail-value" id="productLote">-</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Estado</div>
+                                    <div class="detail-value" style="color: #28a745;">Auténtico</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie de página de la empresa -->
+                        <div class="company-footer">
+                            <p class="company-text">
+                                Vendido por <span class="company-highlight">AROME DE DIEU</span><br>
+                                Garantía de autenticidad y calidad premium
+                            </p>
+                            <!-- Contador de redirección -->
+                            <div class="redirect-countdown" id="redirectCountdown" style="display: none;">
+                                <p class="countdown-text">
+                                    <i class="fas fa-home"></i>
+                                    Redirigiendo a la tienda en <span id="countdownTimer">10</span> segundos...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cargar scripts del index -->
+    <script src="js/cart.js?v=3.0"></script>
+    <script src="js/cart-error-fixes.js?v=3.0"></script>
+    <script src="js/limpiar-productos-prueba.js?v=3.0"></script>
+    <script src="js/navbar.js?v=3.0"></script>
+    <script src="js/app.js?v=3.0"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js?v=3.0"></script>
+    <script src="js/qr-service-fixed.js?v=3.0"></script>
+
+    <!-- Script específico de verificación QR -->
+    <script src="js/verificacion-qr.js?v=3.0"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+ANÁLISIS DE ARCHIVOS JS USADOS VS NO USADOS
+=============================================
+
+ARCHIVOS JS ENCONTRADOS EN USO:
+--------------------------------
+1. discount-popup.js - USADO en index.html
+2. navbar.js - USADO en múltiples archivos
+3. footer.js - USADO en múltiples archivos  
+4. url-encryption.js - USADO en múltiples archivos
+5. url-encryption-adapter.js - USADO en múltiples archivos
+6. supabase-config.js - USADO en múltiples archivos
+7. cart.js - USADO en múltiples archivos
+8. cart-error-fixes.js - USADO en múltiples archivos
+9. limpiar-productos-prueba.js - USADO en múltiples archivos
+10. para_ellos.js - USADO en para_ellos.html
+11. para_ellas.js - USADO en para_ellas.html
+12. productos.js - USADO en productos.html
+13. catalogo.js - USADO en catalogo.html
+14. catalogo-supabase.js - USADO en catalogo-supabase.html
+15. supabase-config-optimized.js - USADO en admin-panel.html
+16. qr-service-fixed.js - USADO en admin-panel.html y verificacion-qr.html
+17. admin-panel-mejorado.js - USADO en admin-panel.html
+18. csv-upload-fixed.js - USADO en admin-panel-estructura-mejorada.html
+19. secure-database.js - USADO en admin-panel-estructura-mejorada.html
+20. secure-product-service.js - USADO en admin-panel-estructura-mejorada.html
+21. security-integration.js - USADO en admin-panel-estructura-mejorada.html
+22. app.js - USADO en verificacion-qr.html
+23. verificacion-qr.js - USADO en verificacion-qr.html
+24. vintage-clean.js - USADO en vintage.html y vintage-clean.html
+25. clasicas.js - USADO en clasicas.html
+
+TOTAL DE ARCHIVOS JS: 48
+ARCHIVOS EN USO: 25
+ARCHIVOS SIN USO: 23 archivos candidatos para eliminación

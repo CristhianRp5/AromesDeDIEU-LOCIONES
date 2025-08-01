@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colección Clásica - Aromes De Dieu</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css?v=3.0">
+    <link rel="stylesheet" href="../../css/navbar.css?v=3.0">
+    <link rel="stylesheet" href="../../css/cart.css?v=3.0">
+    <link rel="stylesheet" href="../../css/slide-cart.css?v=3.0">
+    <link rel="stylesheet" href="../../css/colecciones/clasicas.css?v=3.0">
+</head>
+<body>
+    <!-- Navbar container -->
+    <div id="navbar-container"></div>
+    
+    <!-- Carrito deslizante -->
+    <div id="cart-slide" class="cart-slide">
+        <div class="cart-header">
+            <h3 class="cart-title">Mi Carrito</h3>
+            <button id="cart-close" class="cart-close">&times;</button>
+        </div>
+        <div class="cart-content">
+            <div class="cart-items" id="cart-items">
+                <!-- Los productos se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">Total: </span>
+                <span class="total-amount" id="cart-total">$0</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <main class="classic-collection">
+        <!-- Hero Section con Desierto -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="fragrance-details">
+                    <h1>BLEU DESIERTO</h1>
+                    <p>El misterio del desierto dorado</p>
+                    <button class="explore-btn">VER DETALLES</button>
+                </div>
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="../../VIDEOS/Bleu Desierto.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Silver Hielo -->
+        <section class="fragrance-section ice-section">
+            <div class="fragrance-content">
+                <div class="text-content">
+                    <h2>SILENCIO BLANCO</h2>
+                    <p>El lujo contenido en la quietud del hielo</p>
+                    <button class="explore-btn light">VER DETALLES</button>
+                </div>
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="../../VIDEOS/CREED  SILVER HIELO.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Mar -->
+        <section class="fragrance-section ocean-section">
+            <div class="fragrance-content reverse">
+                <div class="text-content">
+                    <h2>SEDUCTOR COMO EL MAR</h2>
+                    <p>La fuerza infinita del océano</p>
+                    <button class="explore-btn">VER DETALLES</button>
+                </div>
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="../../VIDEOS/JeanPaul mar.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catálogo Section -->
+        <section class="catalogue-section">
+            <h2>NUESTRO CATÁLOGO</h2>
+            <div class="catalogue-grid">
+                <div class="catalogue-item desert">
+                    <div class="catalogue-image">
+                        <video loop muted playsinline poster="../../VIDEOS/thumbnails/bleu-desierto-thumb.jpg">
+                            <source src="../../VIDEOS/Bleu Desierto.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <h3>Bleu Desierto</h3>
+                </div>
+                <div class="catalogue-item ice">
+                    <div class="catalogue-image">
+                        <video loop muted playsinline poster="../../VIDEOS/thumbnails/silver-hielo-thumb.jpg">
+                            <source src="../../VIDEOS/CREED  SILVER HIELO.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <h3>Silencio Blanco</h3>
+                </div>
+                <div class="catalogue-item ocean">
+                    <div class="catalogue-image">
+                        <video loop muted playsinline poster="../../VIDEOS/thumbnails/jeanpaul-mar-thumb.jpg">
+                            <source src="../../VIDEOS/JeanPaul mar.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <h3>Seductor como el Mar</h3>
+                </div>
+                <div class="catalogue-item more">
+                    <div class="more-content">
+                        <span>+</span>
+                        <p>Descubre más</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="../../js/cart.js?v=3.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../../html/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    
+                    // Ajustar rutas para navegación desde colecciones/clasicas.html
+                    const logo = document.querySelector('.navbar-logo');
+                    if (logo) {
+                        logo.setAttribute('href', '../../index.html');
+                    }
+                    
+                    // Ajustar ruta del logo
+                    const logoImg = document.querySelector('.navbar-logo-img');
+                    if (logoImg) {
+                        logoImg.setAttribute('src', '../../IMAGENES/BLOGO AROME DE DIEU.png');
+                    }
+                    
+                    // Ajustar enlaces del menú
+                    const navLinks = document.querySelectorAll('.navbar-menu a[href]');
+                    navLinks.forEach(link => {
+                        const currentHref = link.getAttribute('href');
+                        
+                        if (link.hasAttribute('data-clasicas-link')) {
+                            link.setAttribute('href', 'clasicas.html');
+                            return;
+                        }
+                        
+                        if (!currentHref.startsWith('http') && 
+                            !currentHref.startsWith('../../') && 
+                            !currentHref.startsWith('#') &&
+                            currentHref.endsWith('.html')) {
+                            
+                            if (currentHref.startsWith('colecciones/')) {
+                                const collectionPage = currentHref.replace('colecciones/', '');
+                                link.setAttribute('href', collectionPage);
+                            } else {
+                                const newHref = '../../html/' + currentHref;
+                                link.setAttribute('href', newHref);
+                            }
+                        }
+                    });
+                    
+                    // Inicializar navbar
+                    setTimeout(() => {
+                        if (typeof initNavbar === 'function') {
+                            initNavbar();
+                        }
+                    }, 150);
+                    
+                    // Reconfigurar carrito
+                    setTimeout(() => {
+                        if (window.shoppingCart && typeof window.shoppingCart.reconfigureEventListeners === 'function') {
+                            window.shoppingCart.reconfigureEventListeners();
+                        }
+                    }, 800);
+                })
+                .catch(error => console.error('Error cargando navbar:', error));
+        });
+    </script>
+    <script src="../../js/cart-error-fixes.js?v=3.0"></script>
+    <script src="../../js/limpiar-productos-prueba.js?v=3.0"></script>
+    <script src="../../js/navbar.js?v=3.0"></script>
+    <script src="../../js/colecciones/clasicas.js?v=3.0"></script>
+</body>
+</html>

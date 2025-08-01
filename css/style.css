@@ -1,0 +1,1072 @@
+/* Archivo principal de estilos */
+body {
+    font-family: 'Cormorant Garamond', serif;
+    margin: 0;
+    padding: 0;
+    background: #2B2B2B;
+    overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", serif;
+}
+
+/* Video Showcase */
+.video-showcase {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background: #2B2B2B;
+    position: relative;
+}
+
+/* Contenedor del video principal */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 800px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay sutil para mejorar legibilidad */
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.video-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #EFE8DC;
+    z-index: 3;
+    width: 90%;
+    max-width: 800px;
+}
+
+.video-content h2 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin: 0;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    line-height: 1.1;
+}
+
+.video-content p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin: 2rem 0;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+/* Shop Now Button - Elegante y Prominente */
+.shop-now-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 16px 40px;
+    background: rgba(239, 232, 220, 0.15);
+    color: #EFE8DC;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid rgba(239, 232, 220, 0.5);
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.shop-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(239, 232, 220, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.shop-now-btn:hover::before {
+    left: 100%;
+}
+
+.shop-now-btn:hover {
+    background: rgba(239, 232, 220, 0.15);
+    border-color: #EFE8DC;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Colección Destacada - Estilo BOMBSHELL ESCAPE */
+.featured-collection {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background: #ffffff;
+}
+
+.collection-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen de fondo estilo campaña */
+.collection-image-bg {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.collection-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+.collection-bg-img:hover {
+    transform: scale(1.05);
+}
+
+/* Contenido de texto centrado debajo */
+.collection-text-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.collection-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.collection-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 0.8;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.collection-sub-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #555;
+    margin: 10px 0 30px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.collection-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0 0 40px 0;
+    font-weight: 300;
+}
+
+.collection-cta-btn {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background: transparent;
+    border: 2px solid #1a1a1a;
+    padding: 16px 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    text-decoration: underline;
+}
+
+.collection-cta-btn:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 1024px) {
+    .collection-container {
+        padding: 60px 20px;
+    }
+    
+    .collection-image-bg {
+        height: 350px;
+        margin-bottom: 50px;
+    }
+    
+    .collection-main-title {
+        font-size: 3.5rem;
+    }
+    
+    .collection-sub-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .collection-container {
+        padding: 40px 15px;
+    }
+    
+    .collection-image-bg {
+        height: 300px;
+        margin-bottom: 40px;
+        border-radius: 10px;
+    }
+    
+    .collection-main-title {
+        font-size: 2.8rem;
+    }
+    
+    .collection-sub-title {
+        font-size: 2rem;
+        margin: 8px 0 25px 0;
+    }
+    
+    .collection-description {
+        font-size: 1rem;
+        margin: 0 0 35px 0;
+    }
+    
+    .collection-cta-btn {
+        padding: 14px 35px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .collection-main-title {
+        font-size: 2.2rem;
+    }
+    
+    .collection-sub-title {
+        font-size: 1.6rem;
+    }
+    
+    .collection-description {
+        font-size: 0.95rem;
+    }
+    
+    .collection-cta-btn {
+        padding: 12px 30px;
+    }
+}
+
+/* Media queries para video responsivo */
+@media (max-width: 1024px) {
+    .video-container {
+        height: 90vh;
+        min-height: 700px;
+    }
+    
+    .video-content h2 {
+        font-size: clamp(2.5rem, 7vw, 5rem);
+    }
+    
+    .video-content p {
+        font-family: 'Libre Baskerville', serif;
+        font-size: clamp(1rem, 2.5vw, 1.8rem);
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        height: 85vh;
+        min-height: 600px;
+    }
+    
+    .video-content h2 {
+        font-size: clamp(2rem, 6vw, 4rem);
+        letter-spacing: 2px;
+    }
+    
+    .video-content p {
+        font-family: 'Libre Baskerville', serif;
+        font-size: clamp(0.9rem, 2vw, 1.5rem);
+        margin: 1.5rem 0;
+        font-weight: 400;
+    }
+    
+    .shop-now-btn {
+        padding: 14px 32px;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container {
+        height: 80vh;
+        min-height: 500px;
+    }
+    
+    .video-content h2 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        letter-spacing: 1px;
+    }
+    
+    .shop-now-btn {
+        padding: 12px 28px;
+        font-size: 0.9rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* Animación de carga suave */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.video-showcase {
+    animation: fadeIn 1s ease-out;
+}
+
+/* ======= DISCOVER COLLECTION SECTION ======= */
+.discover-collection {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.discover-collection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.discover-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.discover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.tab-btn {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #666;
+    background: none;
+    border: none;
+    padding: 15px 0;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #000000, #333333);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    color: #000000;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+/* Perfumes Grid */
+.perfumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.perfume-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfume-item.hidden {
+    display: none;
+}
+
+.perfume-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 0;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.perfume-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.6) 100%);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.perfume-card:hover::before {
+    opacity: 0.5;
+}
+
+.perfume-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.perfume-image {
+    display: none;
+}
+
+.perfume-img {
+    display: none;
+}
+
+/* Contenido del texto debajo de las tarjetas */
+.perfume-name {
+    position: static;
+    z-index: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 0 0 0;
+    padding: 0;
+    text-shadow: none;
+    text-align: center;
+}
+
+.perfume-type {
+    display: none;
+}
+
+/* Glows específicos por categoría */
+.perfume-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.men-glow {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(60, 60, 60, 0.1) 50%, transparent 70%);
+}
+
+.women-glow {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.25) 0%, rgba(80, 80, 80, 0.15) 50%, transparent 70%);
+}
+
+.perfume-card:hover .perfume-glow {
+    opacity: 1;
+}
+
+.perfume-type {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 0;
+    padding: 0 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+/* Hidden class for category switching */
+.perfume-card.hidden {
+    display: none;
+}
+
+/* Footer button */
+.discover-footer {
+    text-align: center;
+}
+
+.discover-btn {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+    border: none;
+    border-radius: 30px;
+    padding: 16px 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.discover-btn:hover {
+    background: linear-gradient(135deg, #333333, #1a1a1a);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .discover-collection {
+        padding: 60px 0;
+    }
+    
+    .discover-title {
+        font-size: 2.5rem;
+    }
+    
+    .perfumes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .discover-collection {
+        padding: 50px 0;
+    }
+    
+    .discover-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .category-tabs {
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .tab-btn {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+    
+    .perfumes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+    
+    .perfume-card {
+        height: 300px;
+    }
+    
+    .perfume-name {
+        font-size: 1.2rem;
+        margin: 12px 0 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .discover-container {
+        padding: 0 15px;
+    }
+    
+    .discover-title {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .category-tabs {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .tab-btn {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+    
+    .perfumes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+    
+    .perfume-card {
+        height: 250px;
+    }
+    
+    .perfume-name {
+        font-size: 1.1rem;
+        margin: 10px 0 0 0;
+    }
+    
+    .perfume-type {
+        display: none;
+    }
+    
+    .discover-btn {
+        padding: 14px 30px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== SECCIÓN LO QUE HACEMOS ===== */
+.what-we-do {
+    background: #ffffff;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.what-we-do::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.what-we-do-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.98));
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+    border-radius: 18px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-icon svg {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon svg {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.feature-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive para lo que hacemos */
+@media (max-width: 1200px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .what-we-do {
+        padding: 60px 0;
+    }
+    
+    .what-we-do-title {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .what-we-do {
+        padding: 50px 0;
+    }
+    
+    .what-we-do-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .feature-card {
+        padding: 30px 25px;
+    }
+    
+    .feature-title {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    
+    .feature-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .what-we-do-title {
+        font-size: 1.8rem;
+    }
+    
+    .feature-card {
+        padding: 25px 20px;
+    }
+    
+    .feature-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* ======= MEJORAS DE TRANSICIÓN Y PRECARGA ======= */
+
+/* Indicador de carga de imágenes */
+.image-loading-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 10000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #d4af37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.image-loading-indicator p {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Optimizaciones para transiciones de categorías */
+.perfume-grid {
+    position: relative;
+}
+
+.perfume-grid.category-changing {
+    pointer-events: none;
+}
+
+.perfume-item {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.perfume-item.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+}
+
+/* Mejoras para imágenes cargadas */
+.perfume-img {
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.perfume-img.image-loaded {
+    opacity: 1;
+}
+
+/* Optimización de tarjetas durante transiciones */
+.perfume-card {
+    transition: all 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Prevenir clicks durante transiciones */
+.tab-btn.switching {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Estados de hover mejorados */
+.perfume-item:hover .perfume-card {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.perfume-item:hover .perfume-img {
+    transform: scale(1.05);
+}
+
+/* Animación de entrada escalonada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.perfume-item:not(.hidden) {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Indicador de progreso de carga */
+.images-preloaded .perfume-grid {
+    opacity: 1;
+}
+
+.perfume-grid:not(.images-preloaded) {
+    opacity: 0.8;
+}
+
+/* Spinner personalizado para carga */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading-content {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive para indicador de carga */
+@media (max-width: 768px) {
+    .image-loading-indicator {
+        padding: 20px;
+        margin: 0 20px;
+    }
+    
+    .loading-spinner {
+        width: 30px;
+        height: 30px;
+        border-width: 2px;
+    }
+    
+    .image-loading-indicator p {
+        font-size: 0.9rem;
+    }
+}

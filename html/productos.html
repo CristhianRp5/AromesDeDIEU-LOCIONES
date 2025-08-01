@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Aromes De Dieu</title>
+    <link rel="stylesheet" href="../css/style.css?v=3.0">
+    <link rel="stylesheet" href="../css/navbar.css?v=3.0">
+    <link rel="stylesheet" href="../css/productos.css?v=3.0">
+</head>
+<body>
+    <!-- Contenedor para la navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Sección principal de Productos -->
+    <main class="productos-main">
+        <section class="category-showcase">
+            <div class="category-container">
+                <!-- Para Ellos -->
+                <div class="category-item category-men">
+                    <div class="category-image">
+                        <img src="../IMAGENES/PARA_ELLOS.jpg" 
+                             alt="Colección para Caballeros" 
+                             class="category-img"
+                             loading="eager"
+                             decoding="async">
+                    </div>
+                    <div class="category-content">
+                        <h2>Pour Lui</h2>
+                        <p>Descubre la colección para caballeros</p>
+                        <a href="para_ellos.html" class="btn-catalogue" role="button" aria-label="Ver catálogo para caballeros">Ver Catálogo</a>
+                    </div>
+                </div>
+
+                <!-- Para Ellas -->
+                <div class="category-item category-women">
+                    <div class="category-image">
+                        <img src="../IMAGENES/PARA_ELLAS.jpg" 
+                             alt="Colección para Damas" 
+                             class="category-img"
+                             loading="eager"
+                             decoding="async">
+                    </div>
+                    <div class="category-content">
+                        <h2>Pour Elle</h2>
+                        <p>Explora la colección para damas</p>
+                        <a href="para_ellas.html" class="btn-catalogue" role="button" aria-label="Ver catálogo para damas">Ver Catálogo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/url-encryption.js"></script>
+    <script src="../js/url-encryption-adapter.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/productos.js"></script>
+    <script>
+        // Cargar la navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    if (typeof initNavbar === 'function') {
+                        setTimeout(initNavbar, 100);
+                    }
+                });
+        });
+    </script>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Footer Scripts -->
+    <link rel="stylesheet" href="../css/footer.css?v=3.0">
+    <script src="../js/footer.js?v=3.0"></script>
+</body>
+</html>

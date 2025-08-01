@@ -1,0 +1,49 @@
+ARCHIVOS JS NO UTILIZADOS - CANDIDATOS PARA ELIMINACIÓN
+====================================================
+
+ARCHIVOS JS PRINCIPALES SIN USO:
+--------------------------------
+1. contacto.js - NO aparece en ningún HTML
+2. submenu-position-fix.js - NO aparece en ningún HTML
+3. upload-results-helper.js - NO aparece en ningún HTML
+
+ARCHIVOS JS DE COLECCIONES SIN USO:
+-----------------------------------
+4. js/colecciones/navbar-collections.js - NO aparece en ningún HTML
+5. js/colecciones/vintage.js - NO aparece en ningún HTML (se usa vintage-clean.js)
+
+TOTAL ARCHIVOS A ELIMINAR: 5 archivos
+
+ARCHIVOS QUE SE MANTIENEN (EN USO):
+----------------------------------
+✅ discount-popup.js - index.html
+✅ navbar.js - múltiples páginas
+✅ footer.js - múltiples páginas
+✅ url-encryption.js - múltiples páginas
+✅ url-encryption-adapter.js - múltiples páginas
+✅ supabase-config.js - múltiples páginas
+✅ cart.js - múltiples páginas
+✅ cart-error-fixes.js - múltiples páginas
+✅ limpiar-productos-prueba.js - múltiples páginas
+✅ para_ellos.js - para_ellos.html
+✅ para_ellas.js - para_ellas.html
+✅ productos.js - productos.html
+✅ catalogo.js - catalogo.html
+✅ catalogo-supabase.js - catalogo-supabase.html
+✅ supabase-config-optimized.js - admin-panel.html
+✅ qr-service-fixed.js - admin-panel.html, verificacion-qr.html
+✅ admin-panel-mejorado.js - admin-panel.html
+✅ csv-upload-fixed.js - admin-panel-estructura-mejorada.html
+✅ secure-database.js - admin-panel-estructura-mejorada.html
+✅ secure-product-service.js - admin-panel-estructura-mejorada.html
+✅ security-integration.js - admin-panel-estructura-mejorada.html
+✅ app.js - verificacion-qr.html
+✅ verificacion-qr.js - verificacion-qr.html
+✅ vintage-clean.js - vintage.html, vintage-clean.html
+✅ clasicas.js - clasicas.html
+
+OPTIMIZACIÓN COMPLETADA:
+- Archivos JS totales encontrados: 29
+- Archivos en uso confirmados: 24
+- Archivos sin uso identificados: 5
+- Porcentaje de optimización: 17.2%

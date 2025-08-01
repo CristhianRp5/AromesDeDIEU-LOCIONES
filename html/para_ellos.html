@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Lui - Aromes De Dieu</title>
+    <link rel="stylesheet" href="../css/style.css?v=3.0">
+    <link rel="stylesheet" href="../css/navbar.css?v=3.0">
+    <link rel="stylesheet" href="../css/para_ellos.css?v=3.0">
+    <link rel="stylesheet" href="../css/cart.css?v=3.0">
+    <link rel="stylesheet" href="../css/slide-cart.css?v=3.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;600&family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar container -->
+    <div id="navbar-container"></div>
+
+    <!-- Carrito deslizante -->
+    <div id="cart-slide" class="cart-slide">
+        <div class="cart-header">
+            <h3 class="cart-title">Mi Carrito</h3>
+            <button id="cart-close" class="cart-close">&times;</button>
+        </div>
+        <div class="cart-content">
+            <div class="cart-items" id="cart-items">
+                <!-- Los productos se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: $<span id="cart-total">0</span></span>
+            </div>
+            <button class="checkout-btn">Proceder al Pago</button>
+        </div>
+    </div>
+    
+    <!-- Overlay del carrito -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <main class="magazine-main">
+        <!-- Collection Grid -->        <section class="collection-grid">            <div class="video-title-section">
+                <video autoplay muted loop class="hero-video">
+                    <source src="../VIDEOS/VIDEOPARASECCIONPARAELLOS.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="video-overlay-elegant">
+                    <h1 class="video-title-elegant">FRAGANCIAS MASCULINAS</h1>
+                    <p class="video-subtitle-elegant">Descubre nuestra colección exclusiva de perfumes para caballero</p>
+                </div>
+            </div>
+            
+            <!-- Search and Filter Section -->
+            <div class="index-header">
+                <!-- Search Bar -->                <!-- Combined Search and Price Filter -->
+                <div class="search-and-filters-container">
+                    <!-- Search Bar -->
+                    <div class="search-container">                        <div class="search-wrapper">
+                            <input type="text" 
+                                   id="searchInput" 
+                                   class="search-input" 
+                                   placeholder="Buscar fragancia o marca...">
+                            <div class="search-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </div>
+                            <button class="clear-search" id="clearSearch" style="display: none;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filtros Simples de Precio -->
+                    <div class="simple-price-filters collapsed">
+                        <div class="filter-header-controls">
+                            <div class="filter-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6"></path>
+                                    <path d="m9 9 3 3 3-3"></path>
+                                </svg>
+                                <span>Filtrar por Precio</span>
+                            </div>
+                            
+                            <div class="filter-controls">
+                                <button class="clear-filters-btn" id="clearFiltersBtn" title="Limpiar filtros">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3,6 5,6 21,6"></polyline>
+                                        <path d="M19,6v14a2,2,0,0,1-2,2H7a2,2,0,0,1-2-2V6m3,0V4a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2V6"></path>
+                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                                    </svg>
+                                </button>
+                                
+                                <button class="toggle-filter-btn" id="toggleFilterBtn" title="Mostrar/Ocultar filtros">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9,18 15,12 9,6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="simple-filter-buttons" id="filterButtonsContainer">
+                            <button class="simple-filter-btn" id="minPriceBtn" data-filter="min">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="18,15 12,9 6,15"></polyline>
+                                </svg>
+                                Precio Mínimo
+                            </button>
+                            
+                            <button class="simple-filter-btn" id="maxPriceBtn" data-filter="max">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6,9 12,15 18,9"></polyline>
+                                </svg>
+                                Precio Máximo
+                            </button>
+                            
+                            <button class="simple-filter-btn" id="discountBtn" data-filter="discount">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M15 9l-6 6"></path>
+                                    <path d="M9 9h.01"></path>
+                                    <path d="M15 15h.01"></path>
+                                </svg>
+                                Con Descuento
+                            </button>
+                        </div>
+                    </div>
+                </div>                <!-- Loading Indicator -->
+                <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">Cargando productos...</div>
+                    <div class="loading-details" id="loadingDetails"></div>
+                </div>
+
+                <!-- Search Results -->
+                <div class="search-results-count" id="searchResults" style="display: none;"></div><!-- Filter Buttons -->
+                <div class="index-filters">
+                    <button class="index-filter active" data-category="all">Todas las Fragancias</button>
+                    <button class="index-filter" data-category="designer">Marcas de Diseñador Clásicas</button>
+                    <button class="index-filter" data-category="arabic">Marcas Árabes</button>
+                    <button class="index-filter" data-category="contemporary">Perfumería Contemporánea</button>
+                </div>
+
+                <!-- Dynamic Filters -->
+                <div class="dynamic-filters">
+                    <div class="brand-filters filter-section">
+                        <!-- Filtros de marca se generarán dinámicamente -->
+                    </div>
+                    <div class="subcategory-filters filter-section">
+                        <!-- Filtros de subcategoría se generarán dinámicamente -->
+                    </div>
+                </div>            <!-- Product Grid -->
+            <div class="index-grid">
+                <!-- Los productos se cargarán dinámicamente aquí -->
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-container">
+                <div class="pagination-info">
+                    <span id="paginationInfo">Mostrando 1-12 de 44 fragancias</span>
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn prev" id="prevPage" disabled>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"></polyline>
+                        </svg>
+                        Anterior
+                    </button>
+                    
+                    <div class="pagination-numbers" id="paginationNumbers">
+                        <!-- Los números de página se generarán dinámicamente -->
+                    </div>
+                    
+                    <button class="pagination-btn next" id="nextPage">
+                        Siguiente
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,18 15,12 9,6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section><!-- Quick View Modal -->
+        <div class="quick-view-modal">
+            <div class="modal-content">
+                <button class="close-modal" aria-label="Cerrar">×</button>
+                <div class="modal-body">
+                    <!-- El contenido del modal se generará dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Asegurar que los recursos se carguen
+        window.addEventListener('load', function() {
+            document.body.classList.add('resources-loaded');
+        });        // Cargar la navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    // Inicializar navbar después de un pequeño delay
+                    setTimeout(() => {
+                        if (typeof initNavbar === 'function') {
+                            initNavbar();
+                        }
+                    }, 150);
+                    
+                    // Reconfigurar event listeners del carrito después de cargar navbar
+                    setTimeout(() => {
+                        if (window.shoppingCart && typeof window.shoppingCart.reconfigureEventListeners === 'function') {
+                            console.log('🔄 Reconfigurando carrito en Para Ellos...');
+                            window.shoppingCart.reconfigureEventListeners();
+                            console.log('✅ Event listeners del carrito reconfigurados en Para Ellos');
+                        } else {
+                            console.warn('⚠️ Carrito no disponible para reconfigurar en Para Ellos');
+                        }
+                    }, 800);
+                })
+                .catch(error => console.error('Error cargando navbar:', error));
+        });    </script>    <!-- Supabase CDN -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <!-- Scripts de la aplicación -->
+    <script src="../js/url-encryption.js?v=3.0"></script>
+    <script src="../js/url-encryption-adapter.js?v=3.0"></script>
+    <script src="../js/supabase-config.js?v=3.0"></script>
+    <script src="../js/cart.js?v=3.0"></script>
+    <script src="../js/cart-error-fixes.js?v=3.0"></script>
+    <script src="../js/limpiar-productos-prueba.js?v=3.0"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/para_ellos.js"></script>
+    
+    <!-- Verificación simple del carrito -->
+    <script>
+        // Solo verificar que el carrito esté listo, sin forzar inicializaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                if (window.shoppingCart && typeof window.shoppingCart.getTotalItems === 'function') {
+                    console.log('✅ Carrito listo en Para Ellos');
+                } else {
+                    console.warn('⚠️ Carrito no detectado en Para Ellos');
+                }
+            }, 1000);
+        });
+    </script>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Footer Scripts -->
+    <link rel="stylesheet" href="../css/footer.css?v=3.0">
+    <script src="../js/footer.js?v=3.0"></script>
+</body>
+</html>
